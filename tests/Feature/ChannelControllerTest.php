@@ -80,4 +80,22 @@ class ChannelControllerTest extends TestCase
 
         $this->assertDatabaseMissing('channels', ['id' => $channel->id]);
     }
+
+    public function test_store_fails_with_invalid_data(): void
+    {
+        $data = ['name' => '', 'client_count' => -1];
+
+        $response = $this->post(route('channels.store'), $data);
+
+        $response->assertSessionHasErrors(['name', 'client_count']);
+    }
+
+    public function test_index_returns_empty_list_when_no_channels(): void
+    {
+        $response = $this->get(route('channels.index'));
+
+        $response->assertOk()
+            ->assertInertia(fn(AssertableInertia $page) => $page->component('Channels/Index')
+                ->has('channels', 0));
+    }
 }
