@@ -2,6 +2,7 @@ import React from 'react';
 import {router} from '@inertiajs/react';
 import ChannelForm from "@/Components/ChannelForm";
 import {Channel} from "@/types";
+import ReturnToChannelsHomePageButton from "@/Components/ReturnToChannelsHomePageButton";
 
 export default function Edit({channel}: { channel: Channel }) {
     async function handleSubmit(values: { name: string; client_count: string | number }) {
@@ -15,6 +16,7 @@ export default function Edit({channel}: { channel: Channel }) {
 
     return (
         <div className="p-8">
+            <ReturnToChannelsHomePageButton/>
             <h1 className="text-2xl font-semibold mb-4">Edytuj kanał</h1>
             <ChannelForm initialValues={{name: channel.name, client_count: channel.client_count}}
                          onSubmit={handleSubmit}/>
