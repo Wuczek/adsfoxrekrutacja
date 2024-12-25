@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,5 +24,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/channels', [ChannelController::class, 'index'])->name('channels.index');
+Route::get('/channels/create', [ChannelController::class, 'create'])->name('channels.create');
+Route::post('/channels', [ChannelController::class, 'store'])->name('channels.store');
+Route::get('/channels/{channel}/edit', [ChannelController::class, 'edit'])->name('channels.edit');
+Route::put('/channels/{channel}', [ChannelController::class, 'update'])->name('channels.update');
+Route::delete('/channels/{channel}', [ChannelController::class, 'destroy'])->name('channels.destroy');
 
 require __DIR__.'/auth.php';
