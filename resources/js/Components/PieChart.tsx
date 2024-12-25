@@ -4,11 +4,11 @@ import {ChannelList, Channel, PieData} from "@/types";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface IPieChart {
+interface PieChartProps {
     channels: ChannelList
 }
 
-export default function PieChart({channels}: IPieChart) {
+export default function PieChart({channels}: PieChartProps) {
     const pieData: PieData = {
         labels: channels.map((channel: Channel) => channel.name),
         datasets: [{
