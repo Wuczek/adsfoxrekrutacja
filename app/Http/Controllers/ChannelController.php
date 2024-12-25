@@ -38,9 +38,11 @@ class ChannelController extends Controller
         return Redirect::route('channels.index')->with('success', 'Channel created successfully.');
     }
 
-    public function edit(): Response
+    public function edit(Channel $channel): Response
     {
-        return Inertia::render('Channels/Edit');
+        return Inertia::render('Channels/Edit', [
+            'channel' => $channel
+        ]);
     }
 
     public function update(ChannelRequest $channelRequest, Channel $channel): RedirectResponse
