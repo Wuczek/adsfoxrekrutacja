@@ -1,5 +1,7 @@
 # Web Application for Managing Client Acquisition Channels with a Pie Chart Representation
 
+---
+
 ## App preview image
 ![App preview](preview.png)
 
@@ -7,6 +9,10 @@
 
 ## Pull request with all changes from the start for easier review
 https://github.com/Wuczek/adsfoxrekrutacja/pull/8/files
+
+---
+
+## App can be accessed on /channels route.
 
 ---
 
